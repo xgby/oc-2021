@@ -44,4 +44,21 @@ Choisir une license:
     /Users/raphael/GitHub/oc-2021/doc/my_book/
     ===
     
+## Publier un site web
 
+Voici la commande pour créer une site web statique.
+
+    ghp-import -n -p -f _build/html
+    Enumerating objects: 113, done.
+    Counting objects: 100% (113/113), done.
+    Delta compression using up to 4 threads
+    Compressing objects: 100% (83/83), done.
+    Writing objects: 100% (113/113), 1.79 MiB | 4.08 MiB/s, done.
+    Total 113 (delta 17), reused 113 (delta 17)
+    remote: Resolving deltas: 100% (17/17), done.
+    remote: 
+    remote: Create a pull request for 'gh-pages' on GitHub by visiting:
+    remote:      https://github.com/Bugnon/oc-2021/pull/new/gh-pages
+    remote: 
+    To https://github.com/Bugnon/oc-2021.git
+    * [new branch]      gh-pages -> gh-pages

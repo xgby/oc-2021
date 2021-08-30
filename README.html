@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Notes de rédaction &#8212; My Book</title>
+    <title>Notes de rédaction &#8212; OC informatique 2021</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -72,7 +72,7 @@
       <img src="_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">My Book</h1>
+      <h1 class="site-logo" id="site-title">OC informatique 2021</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -88,22 +88,25 @@
  </li>
 </ul>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1">
   <a class="reference internal" href="unix/unix.html">
    Commandes UNIX
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="git/git.html">
-     Système de versioning
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="git/git.html">
+   Système de versioning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="inf/05_programmes.html">
+   Programmes et languages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="inf/06_bases.html">
+   Les bases de la programmation
+  </a>
  </li>
 </ul>
 
@@ -197,6 +200,11 @@
    Créer un Jupyter Book
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#publier-un-site-web">
+   Publier un site web
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -254,6 +262,26 @@ Choose from 1, 2, 3 [1]: 1
 Your book template can be found at
 /Users/raphael/GitHub/oc-2021/doc/my_book/
 ===
+</pre></div>
+</div>
+</div>
+<div class="section" id="publier-un-site-web">
+<h2>Publier un site web<a class="headerlink" href="#publier-un-site-web" title="Permalink to this headline">¶</a></h2>
+<p>Voici la commande pour créer une site web statique.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ghp-import -n -p -f _build/html
+Enumerating objects: 113, done.
+Counting objects: 100% (113/113), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (83/83), done.
+Writing objects: 100% (113/113), 1.79 MiB | 4.08 MiB/s, done.
+Total 113 (delta 17), reused 113 (delta 17)
+remote: Resolving deltas: 100% (17/17), done.
+remote: 
+remote: Create a pull request for &#39;gh-pages&#39; on GitHub by visiting:
+remote:      https://github.com/Bugnon/oc-2021/pull/new/gh-pages
+remote: 
+To https://github.com/Bugnon/oc-2021.git
+* [new branch]      gh-pages -&gt; gh-pages
 </pre></div>
 </div>
 </div>
