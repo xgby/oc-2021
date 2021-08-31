@@ -1,0 +1,720 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les commandes UNIX &#8212; OC informatique 2021</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Système de versioning" href="../git/git.html" />
+    <link rel="prev" title="Commandes UNIX" href="unix.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">OC informatique 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Option complémentaire 2021
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="unix.html">
+   Commandes UNIX
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Les commandes UNIX
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../git/git.html">
+   Système de versioning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../inf/05_programmes.html">
+   Programmes et languages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../inf/06_bases.html">
+   Les bases de la programmation
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/unix/unix1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Bugnon/oc-2021"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Bugnon/oc-2021/issues/new?title=Issue%20on%20page%20%2Funix/unix1.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Bugnon/oc-2021/main?urlpath=tree/doc/unix/unix1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#le-finder">
+   Le Finder
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dossier-home-local-reseau">
+   Dossier
+   <strong>
+    home
+   </strong>
+   local/réseau
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#le-terminal">
+   Le terminal
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#afficher-le-contenu">
+   Afficher le contenu
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#afficher-un-dossier-syteme">
+   Afficher un dossier sytème
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#se-deplacer-dans-l-arborescence">
+   Se déplacer dans l’arborescence
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dossiers-particuliers">
+   Dossiers particuliers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#raccourcis">
+   Raccourcis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#votre-home-directory">
+   Votre home directory
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creer-des-dossiers">
+   Créer des dossiers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chemin-relatif-absolue">
+   Chemin relatif/absolue
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deplacer-ou-renommer">
+   Déplacer ou renommer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#afficher-le-contenue">
+   Afficher le contenue
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#afficher-les-details">
+   Afficher les détails
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#touch">
+   Touch
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jour-et-date">
+   Jour et date
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#l-editeur-nano">
+   L’éditeur nano
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lancer-python">
+   Lancer python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-3">
+   Python 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creer-un-ficher-et-l-executer">
+   Créer un ficher et l’exécuter
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="les-commandes-unix">
+<h1>Les commandes UNIX<a class="headerlink" href="#les-commandes-unix" title="Permalink to this headline">¶</a></h1>
+<p>Les commandes UNIX permettent de contrôler l’ordinateur.</p>
+<div class="section" id="le-finder">
+<h2>Le Finder<a class="headerlink" href="#le-finder" title="Permalink to this headline">¶</a></h2>
+<p>Le <strong>Finder</strong> est un gestionnaire de fichiers dans <strong>macOS</strong>.
+Il permet de manipuler les dossiers et de les</p>
+<ul class="simple">
+<li><p>créer</p></li>
+<li><p>afficher</p></li>
+<li><p>trier</p></li>
+</ul>
+<p><img alt="" src="../_images/finder.png" /></p>
+<p>Vous pouvez créer des</p>
+<ul class="simple">
+<li><p>nouvelles fenêtres (ctrl+N)</p></li>
+<li><p>nouveaux dossiers (ctrl+maj+N)</p></li>
+</ul>
+</div>
+<div class="section" id="dossier-home-local-reseau">
+<h2>Dossier <strong>home</strong> local/réseau<a class="headerlink" href="#dossier-home-local-reseau" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="../_images/finder_local.png" /></p>
+<p>Mettre vos documents sur le réseau (p******) vous permet d’y accéder depuis tous les ordinateurs du gymnase.</p>
+</div>
+<div class="section" id="le-terminal">
+<h2>Le terminal<a class="headerlink" href="#le-terminal" title="Permalink to this headline">¶</a></h2>
+<p>Le <strong>terminal</strong> et une applications textuel qui permet de gérer et maitriser complètement la machine à l’aide de commandes écrites dans une console.</p>
+<p>Au démarrage la console affiche la date et l’heure de sa dernière connection.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Last login: Thu Aug 26 11:32:24 on console
+M507-2:~ pp77$
+</pre></div>
+</div>
+<p>Ensuite elle affiche:</p>
+<ul class="simple">
+<li><p>machine (<code class="docutils literal notranslate"><span class="pre">M507-2</span></code>)</p></li>
+<li><p>dossier actuel (<code class="docutils literal notranslate"><span class="pre">~</span></code> home)</p></li>
+<li><p>utilisateur (<code class="docutils literal notranslate"><span class="pre">pp77</span></code>)</p></li>
+<li><p>prompt (<code class="docutils literal notranslate"><span class="pre">$</span></code>) ou invite</p></li>
+</ul>
+<p>C’est après le prompt (<code class="docutils literal notranslate"><span class="pre">$</span></code>) que vous pouvez entrer une commande.
+La commande <code class="docutils literal notranslate"><span class="pre">pwd</span></code> (print working directory) affiche le dossier actuel.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>M507-2:~ pp77$ pwd
+/Users/pp77
+</pre></div>
+</div>
+</div>
+<div class="section" id="afficher-le-contenu">
+<h2>Afficher le contenu<a class="headerlink" href="#afficher-le-contenu" title="Permalink to this headline">¶</a></h2>
+<p>La commande <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">[path]</span></code> (listing) permet d’afficher le contenu d’un dossier. Utilisé sans argument, elle affiche le contenu du dossier actuel.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ls
+Applications	Downloads	Movies		Public
+Desktop		Library		Music		tmp
+Documents	Local		Pictures
+</pre></div>
+</div>
+<p>Pour afficher le contenu du dossier racine (root)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ls /
+Applications	Users		dev		var
+Library		Volumes		etc		sbin
+Network		bin		home		tmp
+</pre></div>
+</div>
+<p>Le dossier <code class="docutils literal notranslate"><span class="pre">/Users</span></code> contient les dossier home des utilisateurs sur la machine</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ls /Users/
+admin	    pg14mry	    pj03qhj	    pl38fyb	
+pp77xir	    pv17sxo	    py26wnl	    py55bdt
+</pre></div>
+</div>
+</div>
+<div class="section" id="afficher-un-dossier-syteme">
+<h2>Afficher un dossier sytème<a class="headerlink" href="#afficher-un-dossier-syteme" title="Permalink to this headline">¶</a></h2>
+<p>Le dossier <code class="docutils literal notranslate"><span class="pre">/bin</span></code> contient les fichier <em>binaires</em> donc exécutable des commandes UNIX</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ls /bin
+pwd		bash		link		rm
+cat		echo		ln		rmdir
+chmod		ed		ls		sh		zsh
+cp		expr		mkdir		sleep
+csh		hostname	mv		stty
+dash		kill		pax		sync
+date		ksh		ps		tcsh
+</pre></div>
+</div>
+<p>Vous y trouvez <code class="docutils literal notranslate"><span class="pre">pwd</span></code> et <code class="docutils literal notranslate"><span class="pre">ls</span></code></p>
+</div>
+<div class="section" id="se-deplacer-dans-l-arborescence">
+<h2>Se déplacer dans l’arborescence<a class="headerlink" href="#se-deplacer-dans-l-arborescence" title="Permalink to this headline">¶</a></h2>
+<p>La commande <strong>cd</strong> (change directory) permet de se déplacer dans l’arborescence</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pwd (print working directory)
+cd
+cd /
+cd /bin
+cd ~
+cd ..
+</pre></div>
+</div>
+</div>
+<div class="section" id="dossiers-particuliers">
+<h2>Dossiers particuliers<a class="headerlink" href="#dossiers-particuliers" title="Permalink to this headline">¶</a></h2>
+<p>Plusieurs dossiers ont des abbréviations courtes</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/ (root)
+~ (home)
+. (current)
+.. (parent)
+../.. (grand-parent)
+</pre></div>
+</div>
+</div>
+<div class="section" id="raccourcis">
+<h2>Raccourcis<a class="headerlink" href="#raccourcis" title="Permalink to this headline">¶</a></h2>
+<p>Les flèches <strong>haut/bas</strong> permettent de se promener dans l’historique des commandes que vous avez deuja utiliés. Souven il est plus rapide de chercher une commande récemment utilisé et la modifier avant de la reéxécuter.</p>
+<p><img alt="" src="../_images/arrows.jpg" /></p>
+<p>Les flèches <strong>gauche/droite</strong> permettent de déplacer le curseur d’édition de la commande.</p>
+<p><img alt="" src="../_images/tab.jpg" /></p>
+<p>La touche <strong>TAB</strong> permet de compléter une chemin ou une commande. Par exemple vous pouvez écrire</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd /V
+</pre></div>
+</div>
+<p>Au moment ou vous appuyez sur <strong>TAB</strong> le chemin est complété à ceci:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd /Volumes
+</pre></div>
+</div>
+<p>Vous pouvez de nouveau ajouter la première lettre du compte</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd /Volumes/p
+</pre></div>
+</div>
+<p>En appuyant la touche <strong>TAB</strong> vous obtenez</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd /Voluves/pp77xir
+</pre></div>
+</div>
+</div>
+<div class="section" id="votre-home-directory">
+<h2>Votre home directory<a class="headerlink" href="#votre-home-directory" title="Permalink to this headline">¶</a></h2>
+<p>C’est votre dossier personnel local. Les fichiers résident en local sur cet ordinateur.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cd
+$ pwd
+/Users/pp77
+</pre></div>
+</div>
+</div>
+<div class="section" id="creer-des-dossiers">
+<h2>Créer des dossiers<a class="headerlink" href="#creer-des-dossiers" title="Permalink to this headline">¶</a></h2>
+<p>La commande <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> (make directory) permet de créer un dossier.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir oc
+mkdir oc/music
+</pre></div>
+</div>
+<p>La commande <code class="docutils literal notranslate"><span class="pre">rmdir</span></code> (remove directory) permet de supprimer un dossier.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rmdir oc
+</pre></div>
+</div>
+</div>
+<div class="section" id="chemin-relatif-absolue">
+<h2>Chemin relatif/absolue<a class="headerlink" href="#chemin-relatif-absolue" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd oc (relatif)
+cd /Volumes/pp77xir/oc/ (absolu)
+
+cd .. (relatif)
+cd /Volumes/pp77xir/ (absolu)
+</pre></div>
+</div>
+</div>
+<div class="section" id="deplacer-ou-renommer">
+<h2>Déplacer ou renommer<a class="headerlink" href="#deplacer-ou-renommer" title="Permalink to this headline">¶</a></h2>
+<p>La commande <code class="docutils literal notranslate"><span class="pre">mv</span></code> (move) permet de déplacer (ou renommer) un fichier.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mv game game2
+mv game2 ..
+mv video demo
+</pre></div>
+</div>
+</div>
+<div class="section" id="afficher-le-contenue">
+<h2>Afficher le contenue<a class="headerlink" href="#afficher-le-contenue" title="Permalink to this headline">¶</a></h2>
+<p>La commande <code class="docutils literal notranslate"><span class="pre">ls</span></code> (listing) permet d’afficher le contenu d’un dossier. Par exemple ceci affiche le contenu de la racine (<code class="docutils literal notranslate"><span class="pre">/</span></code> root)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ls /
+Applications		home
+Library				net
+System				opt
+Users				private
+Volumes				sbin
+bin				    usr
+cores				var
+</pre></div>
+</div>
+<p>Ceci afficher le contenu du dossier <code class="docutils literal notranslate"><span class="pre">/bin</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ls /bin/
+pwd		test    bash    link	rmdir
+chmod	ed		ls		sh		zsh
+cp		mv	mkdir		sleep   date
+</pre></div>
+</div>
+</div>
+<div class="section" id="afficher-les-details">
+<h2>Afficher les détails<a class="headerlink" href="#afficher-les-details" title="Permalink to this headline">¶</a></h2>
+<p>Vous pouvez ajouter des options aux commandes. Par exemple <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> affiche des détails</p>
+</div>
+<div class="section" id="touch">
+<h2>Touch<a class="headerlink" href="#touch" title="Permalink to this headline">¶</a></h2>
+<p>La commande <code class="docutils literal notranslate"><span class="pre">touch</span></code> (toucher) permet de mettre à jour la date de modification.
+Si le fichier n’existe pas, un fichier de taille 0 est créé.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>touch file_a
+touch dossier_a
+</pre></div>
+</div>
+</div>
+<div class="section" id="jour-et-date">
+<h2>Jour et date<a class="headerlink" href="#jour-et-date" title="Permalink to this headline">¶</a></h2>
+<p>La commande <code class="docutils literal notranslate"><span class="pre">date</span></code> affiche la date et l’heure actuelle.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ date
+Mer 25 aoû 2021 14:09:10 CEST
+</pre></div>
+</div>
+<p>La commande <code class="docutils literal notranslate"><span class="pre">cal</span></code> affiche un calendrier du mois.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cal
+    Août 2021        
+Di Lu Ma Me Je Ve Sa  
+1  2  3  4  5  6  7  
+8  9 10 11 12 13 14  
+15 16 17 18 19 20 21  
+22 23 24 25 26 27 28  
+29 30 31                  
+</pre></div>
+</div>
+</div>
+<div class="section" id="l-editeur-nano">
+<h2>L’éditeur nano<a class="headerlink" href="#l-editeur-nano" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nano
+
+# Titre
+Ceci est une ligne de text.
+</pre></div>
+</div>
+<p>Etappes:</p>
+<ul class="simple">
+<li><p>ctr-X exit</p></li>
+<li><p>Y pour sauvegarder</p></li>
+<li><p>donner le nom demo.txt</p></li>
+</ul>
+<p>Vérifier le fichier</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls
+cat demo.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="lancer-python">
+<h2>Lancer python<a class="headerlink" href="#lancer-python" title="Permalink to this headline">¶</a></h2>
+<p>La commande <code class="docutils literal notranslate"><span class="pre">python</span></code> lance l’application Python en mode console.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python
+Python 2.7.16 (default, Jan 26 2020, 23:50:38) 
+[GCC 4.2.1 Compatible Apple LLVM 9.0.0 (clang-900.0.31)] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; 
+</pre></div>
+</div>
+<p>Après le prompt <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> vous pouvez entrer une commande.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; 2 ** 8
+256
+&gt;&gt;&gt; 2 ** 32
+4294967296
+&gt;&gt;&gt; print(&#39;hello &#39; * 3)
+hello hello hello
+</pre></div>
+</div>
+<p>Pour quitter Python</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; quit()
+</pre></div>
+</div>
+</div>
+<div class="section" id="python-3">
+<h2>Python 3<a class="headerlink" href="#python-3" title="Permalink to this headline">¶</a></h2>
+<p>Pour lancer la version plus récente de Python, utilisez la commande <code class="docutils literal notranslate"><span class="pre">python3</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python3
+Python 3.9.1 (v3.9.1:1e5d33e9b9, Dec  7 2020, 12:10:52) 
+[Clang 6.0 (clang-600.0.57)] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; 
+</pre></div>
+</div>
+<p>Essayez maintenant d’entrer une boucle à la console</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; for i in range(3):
+...     print(&#39;hello&#39;, i)
+... 
+hello 0
+hello 1
+hello 2
+</pre></div>
+</div>
+<p>Le prompt <code class="docutils literal notranslate"><span class="pre">...</span></code> vous indique que la commande <code class="docutils literal notranslate"><span class="pre">for</span></code> n’est pas fini. La dernière ligne vide (<code class="docutils literal notranslate"><span class="pre">...</span></code>) indique la fin de la boucle et force l’exécution.</p>
+</div>
+<div class="section" id="creer-un-ficher-et-l-executer">
+<h2>Créer un ficher et l’exécuter<a class="headerlink" href="#creer-un-ficher-et-l-executer" title="Permalink to this headline">¶</a></h2>
+<p>Lancez l’éditeur nano avec un nom de fichier</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ nano hello.py
+</pre></div>
+</div>
+<p>Entrez le texte suivant</p>
+<p><img alt="" src="../_images/nano.png" /></p>
+<ul class="simple">
+<li><p>sauvegarder avec ctrl+O (Output)</p></li>
+<li><p>quitter avec ctrl+X (eXit)</p></li>
+</ul>
+<p>Ensuite executez le programme depuis la console</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python3 hello.py 
+hello
+0
+1
+2
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./unix"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="unix.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Commandes UNIX</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../git/git.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Système de versioning</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Raphael Holzer<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
