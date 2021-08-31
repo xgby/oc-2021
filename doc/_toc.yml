@@ -4,6 +4,7 @@
 format: jb-book
 root: intro
 chapters:
+- file: unix/unix1
 - file: unix/unix
 - file: git/git
 - file: inf/05_programmes
