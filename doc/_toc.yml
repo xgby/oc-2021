@@ -2,10 +2,24 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
-chapters:
-- file: unix/unix1
-- file: unix/unix
-- file: git/git
-- file: inf/05_programmes
-- file: inf/06_bases
+root: index
+parts:
+  - caption: Introduction
+    chapters:
+    - file: unix/unix1
+    - file: unix/unix
+    - file: git/git0
+    - file: git/github
+    - file: git/github2
+
+  - caption: Mathématiques
+    chapters:
+    - file: inf/01_logique
+    - file: inf/02_ensembles
+    - file: inf/03_arithmetic
+    - file: inf/04_matrices
+
+  - caption: Programmation
+    chapters:
+    - file: inf/05_programmes
+    - file: inf/06_bases

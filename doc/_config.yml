@@ -9,11 +9,12 @@ title                       : OC informatique 2021  # The title of the book. Wil
 author                      : Raphael Holzer  # The author of the book
 copyright                   : "2021"  # Copyright year to be placed in the footer
 logo                        : logo.png  # A path to the book logo
+exclude_patterns            : [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", my_book]
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: force
+  execute_notebooks: off
 
 # Define the name of the latex output file for PDF builds
 latex:

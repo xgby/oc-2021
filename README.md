@@ -24,4 +24,21 @@ L'objectif de ce cours est de donner une introduction à l'informatique en utili
     You should consider upgrading via the 'pip install --upgrade pip' command.
 
 
+## Compiler le livre
+
+Les documents pour ce site se trouvent dans le dossier `doc`. Pour créer les pages HTML allez exécutez
+
+    cd doc
+    jb build .
+
+Pour visualiser les pages:
+
+    open _build/html/index.html
+
+
+Pour pousser les pages vers GitHub Pages
+
+    ghp-import -n -p -f _build/html
+
+
 
