@@ -10,3 +10,7 @@ Dans ce cours nous allons découvrir
 - comment fonctionne un ordinateur
 - ce que c'est programmer
 - comment utiliser les outils pour coder
+
+```{youtube} gYI-K7XNwqc
+
+```
